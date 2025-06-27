@@ -3,11 +3,6 @@ import React, { useState } from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { cn } from "@/lib/utils";
-import {
-    IconBrandGithub,
-    IconBrandGoogle,
-    IconBrandOnlyfans,
-} from "@tabler/icons-react";
 import Glass from "./ui/Glass";
 
 export function SignupForm() {
@@ -24,7 +19,6 @@ export function SignupForm() {
         if (allFilled) {
         }
     };
-    const [hasText, setHasText] = useState(false);
     return (
         <div className="shadow-input mx-auto w-full max-w-md rounded-3xl p-4 md:rounded-2xl md:p-8 liquidGlass-wrapper relative">
             <h2 className="text-xl font-bold text-neutral-800 dark:text-neutral-200 z-10 relative">

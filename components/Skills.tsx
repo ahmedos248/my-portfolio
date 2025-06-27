@@ -5,7 +5,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import Glass from './ui/Glass';
 import { useInView } from 'react-intersection-observer';
 
-const Skill = ({ target, label }: { target: number; label: string }) => {
+const Skill = ({ target, label, animate }: { target: number; label: string; animate: boolean }) => {
     const [value, setValue] = useState(0);
     const { ref, inView } = useInView({
         triggerOnce: false,

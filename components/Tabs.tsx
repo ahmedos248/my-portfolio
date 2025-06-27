@@ -65,7 +65,10 @@ export function CustomTabs() {
                         key={tab.label}>
                         <button
                             key={tab.label}
-                            ref={(el) => (tabRefs.current[index] = el)}
+                            ref={(el: HTMLButtonElement | null) => {
+                                tabRefs.current[index] = el;
+                            }}
+
                             onClick={() => setActiveTab(index)}
                             className={`flex-1 z-10 relative liquidGlass-wrapper rounded-full overflow-hidden flex items-center justify-center mx-3 px-4 py-2 text-3xl font-medium transition-colors duration-300 ${index === activeTab ? 'text-white' : 'text-white hover:text-green-300'
                                 }`}

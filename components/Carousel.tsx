@@ -4,7 +4,6 @@ import Slider from "react-slick";
 import Skill from "./Skills";
 import Glass from "./ui/Glass";
 import { useInView } from 'react-intersection-observer';
-import { Label } from "@radix-ui/react-label";
 
 
 // Custom arrow components
