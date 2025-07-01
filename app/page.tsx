@@ -5,7 +5,7 @@ import Texture from "../components/ui/texture";
 import { NavbarDemo } from "@/components/NavbarDemo";
 import Skills from "@/components/Skills";
 import Carousel from "@/components/Carousel";
-import { CustomTabs } from "@/components/Tabs";
+import { CustomTabs } from "@/components/CustomTabs";
 import { BackgroundGradientAnimation } from "@/components/ui/GradientBg";
 import Footer from "@/components/Footer";
 

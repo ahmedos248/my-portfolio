@@ -2,17 +2,17 @@
 import { useState, useRef, useEffect } from 'react';
 import { MyProjects } from './MyProjects';
 import Glass from './ui/Glass';
-import { SignupForm } from './SignupForm';
+import { ContactForm } from './ContactForm';
 
 const tabs = [
     { label: '1st Section', content: <MyProjects /> },
-    { label: '2nd Section', content: <SignupForm /> },
+    { label: '2nd Section', content: <ContactForm /> },
     {
         label: '3rd Section',
         content:
             <>
                 <div className='flex justify-center items-center text-sm pb-7 text-white/80 relative z-10'><p>My name is Ahmed, I live in El Gamalia, I am 25 years old, These are some of my projects.</p></div>
-                <SignupForm />
+                <ContactForm />
             </>
     },
 ];

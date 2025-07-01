@@ -2,13 +2,10 @@
 import {
     Navbar,
     NavBody,
-    NavItems,
     MobileNav,
     NavbarLogo,
     MobileNavHeader,
-    MobileNavToggle,
 } from "@/components/ui/resizable-navbar";
-import { useState } from "react";
 import Glass from "./ui/Glass";
 import { FloatingDockDemo } from "./FloatingDockDemo";
 import GlowButton from "./GlowButton";
@@ -17,7 +14,6 @@ export function NavbarDemo() {
     return (
         <div className="relative w-full">
             <Navbar>
-                {/* Desktop Navigation */}
                 <NavBody className="liquidGlass-wrapper rounded-full relative">
                     <NavbarLogo />
                     <Glass className="rounded-full" />
@@ -30,8 +26,6 @@ export function NavbarDemo() {
                         <GlowButton />
                     </div>
                 </NavBody>
-
-                {/* Mobile Navigation */}
                 <MobileNav className="liquidGlass-wrapper rounded-full relative">
                     <Glass className="rounded-full" />
                     <MobileNavHeader className="z-10 relative w-full">
@@ -42,8 +36,6 @@ export function NavbarDemo() {
                     </MobileNavHeader>
                 </MobileNav>
             </Navbar>
-
-            {/* Navbar */}
         </div>
     );
 }

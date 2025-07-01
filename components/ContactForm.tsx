@@ -5,7 +5,7 @@ import { Input } from "./ui/input";
 import { cn } from "@/lib/utils";
 import Glass from "./ui/Glass";
 
-export function SignupForm() {
+export function ContactForm() {
     const [first, setFirst] = useState("");
     const [last, setLast] = useState("");
     const [email, setEmail] = useState("");
@@ -13,12 +13,31 @@ export function SignupForm() {
     const [message, setMessage] = useState("");
 
     const allFilled = first && last && email && phone && message;
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("Form submitted");
-        if (allFilled) {
+
+        if (!allFilled) return;
+
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ first, last, email, phone, message }),
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                alert("Message sent!");
+                setFirst(""); setLast(""); setEmail(""); setPhone(""); setMessage("");
+            } else {
+                alert("Something went wrong.");
+            }
+        } catch (err) {
+            alert("Failed to send message.");
         }
     };
+
     return (
         <div className="shadow-input mx-auto w-full max-w-md rounded-3xl p-4 md:rounded-2xl md:p-8 liquidGlass-wrapper relative">
             <h2 className="text-xl font-bold text-neutral-800 dark:text-neutral-200 z-10 relative">
