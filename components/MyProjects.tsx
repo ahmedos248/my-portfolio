@@ -6,7 +6,7 @@ export function MyProjects() {
             <div className="z-10 text-white text-3xl font font-extrabold"><h2>My Projects</h2></div>
             <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-2 flex-col w-full z-10">
                 <div
-                    className="liquidGlass-wrapper h-96 relative rounded-3xl"
+                    className="liquidGlass-wrapper h-80 md:h-96 relative rounded-3xl"
                 >
                     <div className="absolute inset-0 z-10 p-4 pointer-events-none">
                         <img
@@ -26,7 +26,7 @@ export function MyProjects() {
                     <Glass className="rounded-2xl" />
                 </div>
                 <div
-                    className="liquidGlass-wrapper h-96 relative rounded-3xl"
+                    className="liquidGlass-wrapper h-80 md:h-96 relative rounded-3xl"
                 >
                     <div className="absolute inset-0 z-10 p-4 pointer-events-none">
                         <img
@@ -46,7 +46,7 @@ export function MyProjects() {
                     <Glass className="rounded-2xl" />
                 </div>
                 <div
-                    className="liquidGlass-wrapper h-96 relative rounded-3xl"
+                    className="liquidGlass-wrapper h-80 md:h-96 relative rounded-3xl"
                 >
                     <div className="absolute inset-0 z-10 p-4 pointer-events-none">
                         <img
@@ -66,7 +66,7 @@ export function MyProjects() {
                     <Glass className="rounded-2xl" />
                 </div>
                 <div
-                    className="liquidGlass-wrapper h-96 relative rounded-3xl"
+                    className="liquidGlass-wrapper h-80 md:h-96 relative rounded-3xl"
                 >
                     <div className="absolute inset-0 z-10 p-4 pointer-events-none">
                         <img
@@ -86,7 +86,7 @@ export function MyProjects() {
                     <Glass className="rounded-2xl" />
                 </div>
                 <div
-                    className="liquidGlass-wrapper h-96 relative rounded-3xl"
+                    className="liquidGlass-wrapper h-80 md:h-96 relative rounded-3xl"
                 >
                     <div className="absolute inset-0 z-10 p-4 pointer-events-none">
                         <img
@@ -106,7 +106,7 @@ export function MyProjects() {
                     <Glass className="rounded-2xl" />
                 </div>
                 <div
-                    className="liquidGlass-wrapper h-96 relative rounded-3xl"
+                    className="liquidGlass-wrapper h-80 md:h-96 relative rounded-3xl"
                 >
                     <div className="absolute inset-0 z-10 p-4 pointer-events-none">
                         <img

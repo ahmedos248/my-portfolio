@@ -1,9 +1,6 @@
 'use client';
 import React from 'react'
-import { cn } from '@/lib/utils'
-import { FaLocationArrow } from 'react-icons/fa'
 import { TextGenerateEffect } from './ui/text-generate-effect'
-import { BackgroundGradientAnimation } from './ui/GradientBg'
 import Glass from './ui/Glass'
 import Typewriter from 'typewriter-effect'
 

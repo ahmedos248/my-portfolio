@@ -16,7 +16,6 @@ const tabs = [
             </>
     },
 ];
-
 export function CustomTabs() {
     const [activeTab, setActiveTab] = useState(0);
     const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -32,23 +31,19 @@ export function CustomTabs() {
                 });
             }
         };
-
-        // Run once on mount and tab change
         updateIndicator();
-
-        // Run on resize
         window.addEventListener('resize', updateIndicator);
         return () => window.removeEventListener('resize', updateIndicator);
     }, [activeTab]);
 
 
     return (
-        <div id="projects" className="scroll-mt-24 relative w-full min-w-7xl mx-auto mt-14 px-16 pb-10">
+        <div id="projects" className="scroll-mt-24 relative w-full min-w-7xl mx-auto mt-14 p-5 md:px-16 pb-10">
             <div className='flex justify-center items-center text-3xl font-extrabold py-4 relative z-10'>
                 <h1>My Projects</h1>
             </div>
             <div className='flex justify-center items-center text-sm pb-7 text-white/80 relative z-10'><p>My name is Ahmed, I live in Cairo, El Gamalia, These are some of my projects.</p></div>
-            <div className="relative flex justify-center mb-5">
+            <div className="relative flex justify-center mb-5 mx-10">
                 {typeof indicatorStyle.left === 'number' && typeof indicatorStyle.width === 'number' && (
                     <span
                         className="absolute bottom-0 left-0 rounded-full transition-all duration-300 h-full"
@@ -70,7 +65,7 @@ export function CustomTabs() {
                             }}
 
                             onClick={() => setActiveTab(index)}
-                            className={`flex-1 z-10 relative liquidGlass-wrapper rounded-full overflow-hidden flex items-center justify-center mx-3 px-4 py-2 text-3xl font-medium transition-colors duration-300 ${index === activeTab ? 'text-white' : 'text-white hover:text-green-300'
+                            className={`flex-1 z-10 relative liquidGlass-wrapper rounded-full overflow-hidden flex items-center justify-center mx-3 px-4 py-2 text-xl md:text-3xl font-medium transition-colors duration-300 ${index === activeTab ? 'text-white' : 'text-white hover:text-green-300'
                                 }`}
 
                         >
@@ -80,7 +75,6 @@ export function CustomTabs() {
                     </div>
                 ))}
             </div>
-            {/* Tab content */}
             <div>{tabs[activeTab].content}</div>
         </div>
 

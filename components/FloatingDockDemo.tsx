@@ -5,8 +5,6 @@ import {
     IconFolders,
     IconBrain,
     IconHome,
-    IconNewSection,
-    IconTerminal2,
     IconBrandFacebook,
     IconBrandInstagram,
     IconBrandLinkedin,
