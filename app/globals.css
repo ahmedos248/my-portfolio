@@ -281,12 +281,12 @@ html {
     0 0 24px white,
     0 0 48px cyan;
 
-  animation-name: moveStars;
+  /* animation-name: moveStars;
   animation-timing-function: linear;
-  animation-iteration-count: infinite;
+  animation-iteration-count: infinite; */
 }
 
-@keyframes moveStars {
+/* @keyframes moveStars {
   from {
     transform: translateY(0);
   }
@@ -294,4 +294,4 @@ html {
   to {
     transform: translateY(-120vh);
   }
-}
+} */
