@@ -1,173 +1,23 @@
-"use client";
-import { cn } from "@/lib/utils";
-import { useEffect, useRef, useState } from "react";
+import React from 'react'
 
-export const BackgroundGradientAnimation = ({
-    gradientBackgroundStart = "rgb(144, 0, 255)",
-    gradientBackgroundEnd = "rgb(0, 0, 60)",
-
-    firstColor = "0, 132, 255",
-    secondColor = "255, 0, 180",
-    thirdColor = "0, 255, 255",
-    fourthColor = "255, 30, 30",
-    fifthColor = "255, 230, 0",
-    pointerColor = "180, 0, 255",
-
-    size = "50%",
-    blendingValue = "hard-light",
-    children,
-    className,
-}: {
-    gradientBackgroundStart?: string;
-    gradientBackgroundEnd?: string;
-    firstColor?: string;
-    secondColor?: string;
-    thirdColor?: string;
-    fourthColor?: string;
-    fifthColor?: string;
-    pointerColor?: string;
-    size?: string;
-    blendingValue?: string;
-    children?: React.ReactNode;
-    className?: string;
-    interactive?: boolean;
-    containerClassName?: string;
-}) => {
-    const interactiveRef = useRef<HTMLDivElement>(null);
-
-    const [curX, setCurX] = useState(0);
-    const [curY, setCurY] = useState(0);
-    const [tgX] = useState(0);
-    const [tgY] = useState(0);
-    useEffect(() => {
-        document.body.style.setProperty(
-            "--gradient-background-start",
-            gradientBackgroundStart
-        );
-        document.body.style.setProperty(
-            "--gradient-background-end",
-            gradientBackgroundEnd
-        );
-        document.body.style.setProperty("--first-color", firstColor);
-        document.body.style.setProperty("--second-color", secondColor);
-        document.body.style.setProperty("--third-color", thirdColor);
-        document.body.style.setProperty("--fourth-color", fourthColor);
-        document.body.style.setProperty("--fifth-color", fifthColor);
-        document.body.style.setProperty("--pointer-color", pointerColor);
-        document.body.style.setProperty("--size", size);
-        document.body.style.setProperty("--blending-value", blendingValue);
-    }, []);
-
-    useEffect(() => {
-        let animationFrameId: number;
-
-        const move = () => {
-            setCurX((prevX) => {
-                const nextX = prevX + (tgX - prevX) / 20;
-                return nextX;
-            });
-
-            setCurY((prevY) => {
-                const nextY = prevY + (tgY - prevY) / 20;
-                return nextY;
-            });
-
-            if (interactiveRef.current) {
-                interactiveRef.current.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
-            }
-
-            animationFrameId = requestAnimationFrame(move);
-        };
-
-        animationFrameId = requestAnimationFrame(move);
-
-        return () => cancelAnimationFrame(animationFrameId);
-    }, [tgX, tgY]);
-
-    const [isSafari, setIsSafari] = useState(false);
-    useEffect(() => {
-        setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
-    }, []);
-
+const GradientBg = () => {
     return (
-        <div
-            className={cn(
-                "w-screen relative overflow-hidden top-0 left-0 bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]",
-                className
-            )}
-        >
-
-            <svg className="hidden">
-                <defs>
-                    <filter id="blurMe">
-                        <feGaussianBlur
-                            in="SourceGraphic"
-                            stdDeviation="10"
-                            result="blur"
-                        />
-                        <feColorMatrix
-                            in="blur"
-                            mode="matrix"
-                            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
-                            result="goo"
-                        />
-                        <feBlend in="SourceGraphic" in2="goo" />
-                    </filter>
-                </defs>
-            </svg>
-            <div>{children}</div>
-            <div
-                className={cn(
-                    "gradients-container h-full w-full blur-sm",
-                    isSafari ? "blur-[2px]" : "[filter:url(#blurMe)_blur(2px)]"
-                )}
-            >
-                <div
-                    className={cn(
-                        `absolute [background:radial-gradient(circle_at_center,_var(--first-color)_0,_var(--first-color)_50%)_no-repeat]`,
-                        `[mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)]`,
-                        `[transform-origin:center_center]`,
-                        `animate-first`,
-                        `opacity-100`
-                    )}
-                ></div>
-                <div
-                    className={cn(
-                        `absolute [background:radial-gradient(circle_at_center,_rgba(var(--second-color),_0.8)_0,_rgba(var(--second-color),_0)_50%)_no-repeat]`,
-                        `[mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)]`,
-                        `[transform-origin:calc(50%-400px)]`,
-                        `animate-second`,
-                        `opacity-100`
-                    )}
-                ></div>
-                <div
-                    className={cn(
-                        `absolute [background:radial-gradient(circle_at_center,_rgba(var(--third-color),_0.8)_0,_rgba(var(--third-color),_0)_50%)_no-repeat]`,
-                        `[mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)]`,
-                        `[transform-origin:calc(50%+400px)]`,
-                        `animate-third`,
-                        `opacity-100`
-                    )}
-                ></div>
-                <div
-                    className={cn(
-                        `absolute [background:radial-gradient(circle_at_center,_rgba(var(--fourth-color),_0.8)_0,_rgba(var(--fourth-color),_0)_50%)_no-repeat]`,
-                        `[mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)]`,
-                        `[transform-origin:calc(50%-200px)]`,
-                        `animate-fourth`,
-                        `opacity-70`
-                    )}
-                ></div>
-                <div
-                    className={cn(
-                        `absolute [background:radial-gradient(circle_at_center,_rgba(var(--fifth-color),_0.8)_0,_rgba(var(--fifth-color),_0)_50%)_no-repeat]`,
-                        `[mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)]`,
-                        `[transform-origin:calc(50%-800px)_calc(50%+800px)]`,
-                        `animate-fifth`,
-                        `opacity-100`
-                    )}
-                ></div>
-            </div>
+        <div>
+            <div className="absolute -top-20 -left-20 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] md:w-[600px] md:h-[600px] lg:w-[700px] lg:h-[700px] rounded-full bg-fuchsia-500 blur-[100px] sm:blur-[150px] lg:blur-[200px] mix-blend-screen"></div>
+            <div className="absolute -top-20 -left-20 w-[200px] h-[200px] sm:w-[350px] sm:h-[350px] md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] rounded-full bg-fuchsia-500 blur-xl sm:blur-2xl lg:blur-3xl mix-blend-screen"></div>
+            <div className="absolute top-10 right-0 w-[280px] h-[280px] sm:w-[450px] sm:h-[450px] md:w-[650px] md:h-[650px] lg:w-[800px] lg:h-[800px] rounded-full bg-yellow-400 blur-[100px] sm:blur-[150px] lg:blur-[200px] mix-blend-screen"></div>
+            <div className="absolute top-10 right-0 w-[240px] h-[240px] sm:w-[400px] sm:h-[400px] md:w-[550px] md:h-[550px] lg:w-[700px] lg:h-[700px] rounded-full bg-yellow-400 blur-xl sm:blur-2xl lg:blur-3xl mix-blend-screen"></div>
+            <div className="absolute bottom-10 right-0 w-[280px] h-[280px] sm:w-[450px] sm:h-[450px] md:w-[650px] md:h-[650px] lg:w-[800px] lg:h-[800px] rounded-full bg-teal-500 blur-[100px] sm:blur-[150px] lg:blur-[200px] mix-blend-screen"></div>
+            <div className="absolute bottom-10 right-0 w-[240px] h-[240px] sm:w-[400px] sm:h-[400px] md:w-[550px] md:h-[550px] lg:w-[700px] lg:h-[700px] rounded-full bg-teal-500 blur-xl sm:blur-2xl lg:blur-3xl mix-blend-screen"></div>
+            <div className="absolute -bottom-20 -left-20 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] md:w-[600px] md:h-[600px] lg:w-[700px] lg:h-[700px] rounded-full bg-red-500 blur-[100px] sm:blur-[150px] lg:blur-[200px] mix-blend-screen"></div>
+            <div className="absolute -bottom-20 -left-20 w-[200px] h-[200px] sm:w-[350px] sm:h-[350px] md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] rounded-full bg-red-500 blur-xl sm:blur-2xl lg:blur-3xl mix-blend-screen"></div>
+            <div className="absolute top-[50%] translate-y-[-50%] -left-20 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] md:w-[700px] md:h-[700px] lg:w-[900px] lg:h-[900px] rounded-full bg-blue-500 blur-[100px] sm:blur-[150px] lg:blur-[200px] mix-blend-screen"></div>
+            <div className="absolute top-[50%] translate-y-[-50%] -left-20 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] md:w-[700px] md:h-[700px] lg:w-[900px] lg:h-[900px] rounded-full bg-blue-500 blur-[30px] sm:blur-[40px] lg:blur-[50px] mix-blend-screen"></div>
+            <div className="absolute bottom-[-100px] sm:bottom-[-150px] lg:bottom-[-200px] left-1/2 -translate-x-1/2 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] md:w-[650px] md:h-[650px] lg:w-[800px] lg:h-[800px] rounded-full bg-purple-600/30 blur-xl sm:blur-2xl lg:blur-3xl mix-blend-screen"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-900/30 via-transparent to-pink-900/50"></div>
         </div>
-    );
-};
+
+    )
+}
+
+export default GradientBg

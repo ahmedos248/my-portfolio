@@ -15,7 +15,7 @@ const Texture = () => {
                     type="fractalNoise"
                     baseFrequency="0.01 0.01"
                     numOctaves={1}
-                    seed={5}
+                    seed={90}
                     result="turbulence"
                 />
                 {/* Seeds: 14, 17,  */}
@@ -47,7 +47,7 @@ const Texture = () => {
                 <feDisplacementMap
                     in="SourceGraphic"
                     in2="softMap"
-                    scale={150}
+                    scale={300}
                     xChannelSelector="R"
                     yChannelSelector="G"
                 />

@@ -96,8 +96,7 @@
   position: absolute;
   z-index: 0;
   inset: 0;
-
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px) saturate(130%) contrast(110%);
   filter: url(#glass-distortion);
   overflow: hidden;
   isolation: isolate;
@@ -107,7 +106,6 @@
   z-index: 1;
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.048);
 }
 
 .liquidGlass-shine {
@@ -118,7 +116,7 @@
   overflow: hidden;
 
   box-shadow: inset 2px 2px 1px 0 rgba(255, 255, 255, 0.5),
-    inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5);
+    inset -1px -1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 .liquidGlass-text {
@@ -269,4 +267,31 @@ a {
 
 html {
   scroll-behavior: smooth;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+
+  /* stronger glowing effect */
+  box-shadow:
+    0 0 6px white,
+    0 0 12px white,
+    0 0 24px white,
+    0 0 48px cyan;
+
+  animation-name: moveStars;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes moveStars {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-120vh);
+  }
 }
