@@ -43,7 +43,6 @@ export default function PageWrapper() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.6 }}
                 >
-                    <Hero />
                     <Carousel />
                     <CustomTabs />
                     <Footer />
