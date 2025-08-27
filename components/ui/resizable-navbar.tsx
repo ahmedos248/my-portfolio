@@ -1,6 +1,5 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { IconMenu2, IconX } from "@tabler/icons-react";
 import {
     motion,
     AnimatePresence,
@@ -43,12 +42,6 @@ interface MobileNavHeaderProps {
     className?: string;
 }
 
-interface MobileNavMenuProps {
-    children: React.ReactNode;
-    className?: string;
-    isOpen: boolean;
-    onClose: () => void;
-}
 
 export const Navbar = ({ children, className }: NavbarProps) => {
     const ref = useRef<HTMLDivElement>(null);

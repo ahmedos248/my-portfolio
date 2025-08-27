@@ -6,17 +6,16 @@ import { CustomTabs } from "@/components/CustomTabs";
 import Footer from "@/components/Footer";
 import Starfield from "@/components/ui/Starfield";
 import GradientBg from "@/components/ui/GradientBg";
+import LoadingScreen from "@/components/LoadingScreen";
+import PageWrapper from "@/components/PageWrapper";
 
 
 export default function Home() {
   return (
-    <main className="relative flex justify-center items-center flex-col overflow-hidden bg-violet-950">
+    <main className="relative flex justify-center items-center flex-col overflow-hidden bg-[#1A0D2A]">
       <div className="min-w-7xl w-full relative z-10">
         <NavbarDemo />
-        <Hero />
-        <Carousel />
-        <CustomTabs />
-        <Footer />
+        <PageWrapper />
         <Texture />
       </div>
       <Starfield />
