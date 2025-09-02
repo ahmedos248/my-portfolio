@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import LoadingScreen from "./LoadingScreen";
-import Hero from "./Hero";
 import Footer from "./Footer";
 import { CustomTabs } from "./CustomTabs";
 import Carousel from "./Carousel";
@@ -17,7 +16,6 @@ export default function PageWrapper() {
 
     useEffect(() => {
         if (loading) {
-            // اخفي السكروول بس سيب مكانه
             document.body.style.overflow = "hidden";
             document.body.style.paddingRight = "var(--scrollbar-width)";
         } else {
@@ -27,7 +25,6 @@ export default function PageWrapper() {
     }, [loading]);
 
     useEffect(() => {
-        // احسب عرض الـ scrollbar مرة واحدة
         const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
         document.documentElement.style.setProperty("--scrollbar-width", `${scrollbarWidth}px`);
     }, []);

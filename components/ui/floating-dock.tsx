@@ -103,7 +103,7 @@ const FloatingDockDesktop = ({
     const [visible, setVisible] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
     const mouseX = useMotionValue(Infinity);
-    const disabledMouseX = useMotionValue(Infinity); // new constant
+    const disabledMouseX = useMotionValue(Infinity);
 
     const [isAtTop, setIsAtTop] = useState(true);
 
@@ -114,13 +114,11 @@ const FloatingDockDesktop = ({
         );
 
         const handleScroll = () => {
-            setIsAtTop(window.scrollY < 50); // only true at top of the page
+            setIsAtTop(window.scrollY < 50);
         };
 
         if (ref.current) observer.observe(ref.current);
         window.addEventListener("scroll", handleScroll);
-
-        // Run on first render
         handleScroll();
 
         return () => {

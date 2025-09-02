@@ -38,7 +38,7 @@ export function CustomTabs() {
 
 
     return (
-        <div id="projects" className="scroll-mt-24 relative w-full min-w-7xl mx-auto mt-14 p-5 md:px-16 pb-10">
+        <div id="projects" className="scroll-mt-24 relative w-full min-w-7xl mx-auto mt-14 p-2 md:px-10 pb-10">
             <div className='flex justify-center items-center text-3xl font-extrabold py-4 relative z-10'>
                 <h1>My Projects</h1>
             </div>

@@ -1,12 +1,8 @@
 import Hero from "../components/Hero";
 import Texture from "../components/ui/texture";
 import { NavbarDemo } from "@/components/NavbarDemo";
-import Carousel from "@/components/Carousel";
-import { CustomTabs } from "@/components/CustomTabs";
-import Footer from "@/components/Footer";
 import Starfield from "@/components/ui/Starfield";
 import GradientBg from "@/components/ui/GradientBg";
-import LoadingScreen from "@/components/LoadingScreen";
 import PageWrapper from "@/components/PageWrapper";
 
 
