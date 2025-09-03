@@ -1,32 +1,45 @@
+// components/ui/GradientBg.tsx
+"use client";
 import React from "react";
 
-interface GradientBgProps {
-    className?: string;
-}
-
-const GradientBg = ({ className }: GradientBgProps) => {
+const GradientBg = ({ className }: { className?: string }) => {
     return (
-        <div className={`pointer-events-none absolute inset-0 overflow-hidden blur-[60px] sm:blur-[70px] md:blur-[80px] lg:blur-[80px] ${className}`}>
-            {/* Fuchsia */}
-            <div className="absolute -top-20 -left-20 w-[700px] h-[700px] rounded-full bg-fuchsia-500 mix-blend-screen blob-scale" />
+        <div
+            className={`fixed inset-0 pointer-events-none w-full h-full ${className ?? ""}`}
+            aria-hidden="true"
+        >
+            {/* Top-left */}
+            <div className="absolute -top-20 -left-20 w-[300px] h-[300px] lg:w-[500px] lg:h-[500px] z-10">
+                <div className="w-full h-full rounded-full bg-fuchsia-500 blur-[40px]" />
+            </div>
 
-            {/* Yellow */}
-            <div className="absolute top-10 right-0 w-[800px] h-[800px] rounded-full bg-yellow-400 mix-blend-screen blob-scale" />
+            {/* Top-right */}
+            <div className="absolute -top-20 -right-20 w-[300px] h-[300px] lg:w-[500px] lg:h-[500px] z-10">
+                <div className="w-full h-full rounded-full bg-yellow-400 blur-[40px]" />
+            </div>
 
-            {/* Teal */}
-            <div className="absolute bottom-10 right-0 w-[800px] h-[800px] rounded-full bg-teal-500 mix-blend-screen blob-scale" />
+            {/* Bottom-right */}
+            <div className="absolute -bottom-20 -right-20 w-[320px] h-[320px] lg:w-[540px] lg:h-[540px] z-10">
+                <div className="w-full h-full rounded-full bg-teal-500 blur-[40px]" />
+            </div>
 
-            {/* Red */}
-            <div className="absolute bottom-[5%] left-[5%] w-[700px] h-[700px] rounded-full bg-red-500 mix-blend-screen blob-scale" />
+            {/* Bottom-left */}
+            <div className="absolute -bottom-20 -left-20 w-[300px] h-[300px] lg:w-[500px] lg:h-[500px] z-10">
+                <div className="w-full h-full rounded-full bg-red-500 blur-[40px]" />
+            </div>
 
-            {/* Blue */}
-            <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-[10%] w-[900px] h-[900px] rounded-full bg-blue-500 mix-blend-screen blob-scale" />
+            {/* Center-left (shifted further away) */}
+            <div className="absolute top-1/2 left-[160px] w-[350px] h-[350px] lg:w-[600px] lg:h-[600px] z-10 -translate-y-1/2">
+                <div className="w-full h-full rounded-full bg-blue-500 blur-[40px]" />
+            </div>
 
-            {/* Purple */}
-            <div className="absolute bottom-[-200px] left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-purple-600/30 mix-blend-screen blob-scale" />
+            {/* Bottom-center (pulled down to avoid overlaps) */}
+            <div className="absolute bottom-[40px] left-1/2 -translate-x-1/2 w-[320px] h-[320px] lg:w-[540px] lg:h-[540px] z-10">
+                <div className="w-full h-full rounded-full bg-violet-600 blur-[40px]" />
+            </div>
 
             {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-900/30 via-transparent to-pink-900/50" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-900/30 via-transparent to-pink-900/50 z-0" />
         </div>
     );
 };

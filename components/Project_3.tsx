@@ -87,7 +87,7 @@ const Project_3 = ({ className }: Project3Props) => {
                     <iframe
                         src={projectLink}
                         title="Project 1 Preview"
-                        className="md:scale-[0.3] scale-[0.28] h-[900px] sm:w-[1440px] w-[1140px]"
+                        className="md:scale-[0.3] scale-[0.28] h-[900px] w-[1440px]"
                         style={{
                             transformOrigin: "top left",
                             border: "none",
@@ -168,24 +168,12 @@ const Project_3 = ({ className }: Project3Props) => {
                     >
                         <div className="p-4 liquidGlass-wrapper rounded-2xl relative h-full">
                             <div className="absolute inset-0 top-0 left-0 w-full h-full overflow-hidden pointer-events-none rounded-2xl z-10 p-3">
-                                <motion.iframe
-                                    src={projectLink}
-                                    title="Project 1 Preview"
-                                    className="md:scale-[0.3] sm:scale-[0.28] scale-[0.27]"
-                                    initial={{ width: "1440px", height: "900px", scale: 0.3 }}
-                                    animate={{ width: "100vw", height: "100vh", scale: 1 }}
-                                    transition={{ duration: 1.2, ease: "easeInOut" }}
-                                    style={{
-                                        width: "1440px",
-                                        height: "900px",
-                                        transformOrigin: "top left",
-                                        border: "none",
-                                        borderRadius: "3rem",
-                                    }}
-                                    scrolling="no"
+                                <img
+                                    src="images/project3.jpg"
+                                    title="Project 3 Preview"
+                                    className="h-full w-full object-cover rounded-2xl"
                                 />
                             </div>
-                            <Glass className="rounded-2xl" />
                             <div className="absolute bg-neutral-200/50 top-0 left-0 w-full h-full rounded-2xl z-10"></div>
                         </div>
                     </motion.div>

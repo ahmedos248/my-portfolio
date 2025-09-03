@@ -17,7 +17,7 @@ const Project_2 = ({ className }: Project2Props) => {
     const [cardClicked, setCardClicked] = useState(false)
     const cardRef = useRef<HTMLDivElement>(null)
 
-    const projectLink = "https://ahmedos248.github.io/Project1/"
+    const projectLink = "https://ahmedos248.github.io/Project2/Project2/index.html"
 
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth <= 768)

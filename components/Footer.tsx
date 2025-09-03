@@ -1,7 +1,6 @@
 'use client';
 import React from 'react'
 import Glass from './ui/Glass'
-import { IconBrandFacebook, IconBrandGithub, IconBrandInstagram, IconBrandLinkedin } from '@tabler/icons-react'
 const Footer = () => {
     return (
         <section className='items-center justify-items-center'>
