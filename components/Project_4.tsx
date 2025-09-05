@@ -8,7 +8,7 @@ interface Project3Props {
     className?: string;
 }
 
-const Project_1 = ({ className }: Project3Props) => {
+const Project_4 = ({ className }: Project3Props) => {
     const [isMobile, setIsMobile] = useState(false)
     const [animateOverlay, setAnimateOverlay] = useState(false)
     const [overlayStyle, setOverlayStyle] = useState<any>(null)
@@ -17,8 +17,7 @@ const Project_1 = ({ className }: Project3Props) => {
     const [cardClicked, setCardClicked] = useState(false)
     const cardRef = useRef<HTMLDivElement>(null)
 
-    const projectLink = "https://ahmedos248.github.io/Project1/"
-
+    const projectLink = "https://edupress-pi.vercel.app/"
 
     useEffect(() => {
         const handleResize = () => {
@@ -86,8 +85,8 @@ const Project_1 = ({ className }: Project3Props) => {
                 {/* Iframe preview */}
                 <div className="absolute inset-0 top-0 left-0 w-full h-full overflow-hidden pointer-events-none rounded-2xl z-10 p-3">
                     <img
-                        src="images/project1.jpg"
-                        title="Project 1 Preview"
+                        src="images/project4.jpg"
+                        title="Project 4 Preview"
                         className="w-full h-full rounded-[1rem]"
                     />
                 </div>
@@ -164,8 +163,8 @@ const Project_1 = ({ className }: Project3Props) => {
                         <div className="p-4 relative h-full">
                             <div className="absolute inset-0 top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-10 ">
                                 <img
-                                    src="images/project1.jpg"
-                                    title="Project 1 Preview"
+                                    src="images/project4.jpg"
+                                    title="Project 4 Preview"
                                     className="h-full w-full object-cover"
                                 />
                             </div>
@@ -178,4 +177,4 @@ const Project_1 = ({ className }: Project3Props) => {
     )
 }
 
-export default Project_1
+export default Project_4

@@ -84,16 +84,10 @@ const Project_3 = ({ className }: Project3Props) => {
             >
                 {/* Iframe preview */}
                 <div className="absolute inset-0 top-0 left-0 w-full h-full overflow-hidden pointer-events-none rounded-2xl z-10 p-3">
-                    <iframe
-                        src={projectLink}
-                        title="Project 1 Preview"
-                        className="md:scale-[0.3] scale-[0.28] h-[900px] w-[1440px]"
-                        style={{
-                            transformOrigin: "top left",
-                            border: "none",
-                            borderRadius: "3rem",
-                        }}
-                        scrolling="no"
+                    <img
+                        src="images/project3.jpg"
+                        title="Project 3 Preview"
+                        className="w-full h-full rounded-[1rem]"
                     />
                 </div>
 
@@ -161,20 +155,19 @@ const Project_3 = ({ className }: Project3Props) => {
                 >
                     <motion.div
                         className="relative w-full h-full rounded-2xl overflow-hidden"
-                        initial={{ scale: 1 }}
-                        animate={{ scale: 1.1 }}
+                        initial={{ padding: 3, borderRadius: "1.5rem" }}
+                        animate={{ padding: 0, borderRadius: "0rem" }}
                         transition={{ duration: 1.2, ease: "easeInOut" }}
                         style={{ transformOrigin: "center center" }}
                     >
-                        <div className="p-4 liquidGlass-wrapper rounded-2xl relative h-full">
-                            <div className="absolute inset-0 top-0 left-0 w-full h-full overflow-hidden pointer-events-none rounded-2xl z-10 p-3">
+                        <div className="p-4 relative h-full">
+                            <div className="absolute inset-0 top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-10 ">
                                 <img
                                     src="images/project3.jpg"
                                     title="Project 3 Preview"
-                                    className="h-full w-full object-cover rounded-2xl"
+                                    className="h-full w-full object-cover"
                                 />
                             </div>
-                            <div className="absolute bg-neutral-200/50 top-0 left-0 w-full h-full rounded-2xl z-10"></div>
                         </div>
                     </motion.div>
                 </motion.div>,

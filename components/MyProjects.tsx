@@ -3,6 +3,7 @@ import Glass from "./ui/Glass";
 import Project_1 from "./Project_1";
 import Project_2 from "./Project_2";
 import Project_3 from "./Project_3";
+import Project_4 from "./Project_4";
 export function MyProjects() {
     return (
         <div className="grid grid-cols-1 gap-4 p-2 rounded-2xl liquidGlass-wrapper relative">
@@ -22,7 +23,7 @@ export function MyProjects() {
                 <Project_1 />
                 <Project_2 />
                 <Project_3 />
-                <Project_1 />
+                <Project_4 />
                 <Project_1 />
                 <Project_1 />
             </div>
