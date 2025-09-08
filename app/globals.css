@@ -121,12 +121,6 @@
     inset -1px -1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-.liquidGlass-text {
-  z-index: 3;
-  font-size: 2rem;
-  color: black;
-}
-
 a {
   text-decoration: none;
 }

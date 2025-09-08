@@ -9,7 +9,7 @@ import {
     useMotionValue,
     useSpring,
     useTransform,
-} from "motion/react";
+} from "framer-motion";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Glass from "./Glass";
 
@@ -55,30 +55,40 @@ const FloatingDockMobile = ({
             <AnimatePresence>
                 {open && visible && (
                     <motion.div
-                        layoutId="nav"
-                        className="absolute inset-x-0 top-full mb-2 flex flex-col gap-2 mt-2"
+                        className="absolute inset-x-0 top-full mb-2 flex flex-col gap-2 mt-2 overflow-hidden"
                     >
                         {items.map((item, idx) => (
                             <motion.div
                                 key={item.title}
-                                initial={{ opacity: 0, y: -10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{
-                                    opacity: 0,
-                                    y: -10,
-                                    transition: { delay: idx * 0.05 },
+                                initial={{ y: -340 }}
+                                animate={{ y: 0 }}
+                                exit={{ y: -340 }}
+                                transition={{
+                                    delay: (items.length - 1 - idx) * 0.01,
+                                    duration: 0.7,
+                                    ease: "easeInOut",
                                 }}
-                                transition={{ delay: (items.length - 1 - idx) * 0.05 }}
+                                style={{ position: "relative" }}
                             >
                                 <a
                                     href={item.href}
-                                    className="flex h-10 w-10 items-center justify-center rounded-full liquidGlass-wrapper relative"
+                                    className="flex h-10 w-10 items-center justify-center rounded-full relative"
                                 >
                                     <div className="h-4 w-4 z-10">{item.icon}</div>
-                                    <Glass className="rounded-full" />
+                                    <Glass
+                                        className="rounded-full absolute inset-0 z-0 "
+                                        style={{
+                                            transform: "translateZ(0)",
+                                            isolation: "isolate",
+                                            willChange: "filter, backdrop-filter, transform",
+                                        }}
+                                    />
                                 </a>
                             </motion.div>
+
+
                         ))}
+
                     </motion.div>
                 )}
             </AnimatePresence>

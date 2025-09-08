@@ -2,7 +2,6 @@
 import { cn } from "@/lib/utils";
 import {
     motion,
-    AnimatePresence,
     useScroll,
     useMotionValueEvent,
 } from "motion/react";
