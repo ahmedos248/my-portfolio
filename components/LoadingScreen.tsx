@@ -3,8 +3,6 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Glass from "./ui/Glass"
 import Typewriter from "typewriter-effect"
-import GradientBg from "./ui/GradientBg" // 👈 import your blob background
-import StarfieldS from "./ui/Starfield"
 import LoadingGradientBg from "./ui/LoadingGradientBg"
 
 export default function LoadingScreen() {

@@ -2,6 +2,7 @@ import React from 'react';
 
 interface GlassProps {
     className?: string;
+    style?: React.CSSProperties;
 }
 
 const Glass: React.FC<GlassProps> = ({ className = '' }) => {

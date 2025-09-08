@@ -1,8 +1,9 @@
-import React from 'react'
+import React from "react"
 
 const Texture = () => {
     return (
         <svg style={{ display: "none" }}>
+            {/* Desktop filter */}
             <filter
                 id="glass-distortion"
                 x="0%"
@@ -14,22 +15,21 @@ const Texture = () => {
                 <feTurbulence
                     type="fractalNoise"
                     baseFrequency="0.01 0.01"
-                    numOctaves={1}
+                    numOctaves={2}
                     seed={90}
                     result="turbulence"
                 />
-                {/* Seeds: 14, 17,  */}
                 <feComponentTransfer in="turbulence" result="mapped">
-                    <feFuncR type="gamma" amplitude={1} exponent={10} offset="0.5" />
-                    <feFuncG type="gamma" amplitude={1} exponent={10} offset="0.5" />
-                    <feFuncB type="gamma" amplitude={1} exponent={10} offset="0.5" />
+                    <feFuncR type="gamma" amplitude={1} exponent={8} offset="0.5" />
+                    <feFuncG type="gamma" amplitude={1} exponent={8} offset="0.5" />
+                    <feFuncB type="gamma" amplitude={1} exponent={8} offset="0.5" />
                 </feComponentTransfer>
-                <feGaussianBlur in="turbulence" stdDeviation={3} result="softMap" />
+                <feGaussianBlur in="turbulence" stdDeviation={2} result="softMap" />
                 <feSpecularLighting
                     in="softMap"
-                    surfaceScale={5}
-                    specularConstant={1}
-                    specularExponent={100}
+                    surfaceScale={4}
+                    specularConstant={0.8}
+                    specularExponent={60}
                     lightingColor="white"
                     result="specLight"
                 >
@@ -47,7 +47,33 @@ const Texture = () => {
                 <feDisplacementMap
                     in="SourceGraphic"
                     in2="softMap"
-                    scale={300}
+                    scale={120} // lower than 300 for better perf
+                    xChannelSelector="R"
+                    yChannelSelector="G"
+                />
+            </filter>
+
+            {/* Mobile-friendly filter */}
+            <filter
+                id="glass-distortion-mobile"
+                x="0%"
+                y="0%"
+                width="100%"
+                height="100%"
+                filterUnits="objectBoundingBox"
+            >
+                <feTurbulence
+                    type="fractalNoise"
+                    baseFrequency="0.02 0.02"
+                    numOctaves={1}
+                    seed={14}
+                    result="turbulence"
+                />
+                <feGaussianBlur in="turbulence" stdDeviation={1} result="softMap" />
+                <feDisplacementMap
+                    in="SourceGraphic"
+                    in2="softMap"
+                    scale={50} // very light effect
                     xChannelSelector="R"
                     yChannelSelector="G"
                 />
