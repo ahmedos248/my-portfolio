@@ -96,7 +96,7 @@
   position: absolute;
   z-index: 0;
   inset: 0;
-  backdrop-filter: blur(3px) saturate(130%) contrast(110%);
+  backdrop-filter: blur(2px) saturate(130%) contrast(110%);
   filter: url(#glass-distortion);
   overflow: hidden;
   isolation: isolate;

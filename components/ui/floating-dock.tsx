@@ -55,17 +55,21 @@ const FloatingDockMobile = ({
             <AnimatePresence>
                 {open && visible && (
                     <motion.div
-                        className="absolute inset-x-0 top-full mb-2 flex flex-col gap-2 mt-2 overflow-hidden"
+                        className="absolute inset-x-0 top-full mb-2 flex flex-col gap-2 mt-2 overflow-hidden rounded-full"
+                        initial={{ height: 2 }}
+                        animate={{ height: "auto" }}
+                        exit={{ height: 2 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
                         {items.map((item, idx) => (
                             <motion.div
                                 key={item.title}
-                                initial={{ y: -340 }}
+                                initial={{ y: -100 }}
                                 animate={{ y: 0 }}
-                                exit={{ y: -340 }}
+                                exit={{ y: -100 }}
                                 transition={{
                                     delay: (items.length - 1 - idx) * 0.01,
-                                    duration: 0.7,
+                                    duration: 0.3,
                                     ease: "easeInOut",
                                 }}
                                 style={{ position: "relative" }}
@@ -85,8 +89,6 @@ const FloatingDockMobile = ({
                                     />
                                 </a>
                             </motion.div>
-
-
                         ))}
 
                     </motion.div>
