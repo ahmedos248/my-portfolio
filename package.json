@@ -15,6 +15,7 @@
     "@react-three/drei": "^10.7.4",
     "@react-three/fiber": "^9.1.2",
     "@tabler/icons-react": "^3.34.0",
+    "@vercel/speed-insights": "^1.2.0",
     "clsx": "^2.1.1",
     "mini-svg-data-uri": "^1.4.4",
     "motion": "^12.19.1",
