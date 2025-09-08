@@ -4,11 +4,11 @@ import { createPortal } from "react-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import Glass from "./ui/Glass"
 
-interface Project3Props {
+interface ProjectProps {
     className?: string;
 }
 
-const Project_4 = ({ className }: Project3Props) => {
+const Project_4 = ({ className }: ProjectProps) => {
     const [isMobile, setIsMobile] = useState(false)
     const [animateOverlay, setAnimateOverlay] = useState(false)
     const [overlayStyle, setOverlayStyle] = useState<any>(null)
@@ -20,9 +20,7 @@ const Project_4 = ({ className }: Project3Props) => {
     const projectLink = "https://edupress-pi.vercel.app/"
 
     useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768)
-        }
+        const handleResize = () => setIsMobile(window.innerWidth <= 768)
         handleResize()
         window.addEventListener("resize", handleResize)
         return () => window.removeEventListener("resize", handleResize)
@@ -38,19 +36,14 @@ const Project_4 = ({ className }: Project3Props) => {
                 height: rect.height,
             })
         }
-
         setAnimateOverlay(true)
-        // stop animation after 1.4s
         setTimeout(() => setAnimateOverlay(false), 1400)
     }
 
     const handleClick = (e: React.MouseEvent) => {
         if (isMobile) {
             triggerAnimation()
-            // delay link until overlay animation finishes
-            setTimeout(() => {
-                window.open(projectLink, "_blank")
-            }, 1500) // delay matches animation duration
+            setTimeout(() => window.open(projectLink, "_blank"), 1500)
         } else {
             setMessagePos({ x: e.clientX, y: e.clientY })
             setShowMessage(true)
@@ -65,10 +58,7 @@ const Project_4 = ({ className }: Project3Props) => {
     const handleDoubleClick = () => {
         if (!isMobile) {
             triggerAnimation()
-            // delay link until overlay animation finishes
-            setTimeout(() => {
-                window.open(projectLink, "_blank")
-            }, 1500)
+            setTimeout(() => window.open(projectLink, "_blank"), 1500)
         }
     }
 
@@ -76,36 +66,35 @@ const Project_4 = ({ className }: Project3Props) => {
         <>
             <motion.div
                 ref={cardRef}
-                className="relative group cursor-pointer md:w-[455px] md:h-[295px] w-[428px] h-[276px] rounded-3xl overflow-hidden" // card dimensions
+                className="relative group cursor-pointer md:w-[455px] md:h-[295px] w-[428px] h-[276px] rounded-3xl overflow-hidden"
                 onClick={handleClick}
                 onDoubleClick={handleDoubleClick}
                 animate={{ scale: cardClicked ? 0.95 : 1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-                {/* Iframe preview */}
-                <div className="absolute inset-0 top-0 left-0 w-full h-full overflow-hidden pointer-events-none rounded-2xl z-10 p-3">
+                {/* Preview Image */}
+                <div className="absolute inset-0 w-full h-full overflow-hidden rounded-2xl z-10 p-3 pointer-events-none">
                     <img
-                        src="images/project4.jpg"
+                        src="/images/project4.jpg"
                         title="Project 4 Preview"
-                        className="w-full h-full rounded-[1rem]"
+                        className="w-full h-full rounded-[1rem] object-cover"
                     />
                 </div>
 
-                {/* Hover text */}
-                <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center rounded-3xl">
+                {/* Hover Text */}
+                <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center rounded-3xl pointer-events-none">
                     <h2 className="text-center md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-neutral-900 mb-2">
-                        Project 1
+                        Project 4
                     </h2>
                     <p className="text-base text-center text-neutral-800">
                         Simple design with HTML & CSS
                     </p>
                 </div>
 
-                {/* Glass overlay */}
+                {/* Glass Overlay */}
                 <Glass className="absolute inset-0 rounded-3xl" />
-                <div className="absolute bg-neutral-200/50 inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-all ease-in z-10"></div>
+                <div className="absolute bg-neutral-200/50 inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-all ease-in z-10 pointer-events-none"></div>
             </motion.div>
-
 
             {/* Desktop Click Message */}
             <AnimatePresence>
@@ -128,6 +117,7 @@ const Project_4 = ({ className }: Project3Props) => {
                 )}
             </AnimatePresence>
 
+            {/* Overlay Animation */}
             {animateOverlay && overlayStyle && createPortal(
                 <motion.div
                     initial={{
@@ -161,9 +151,9 @@ const Project_4 = ({ className }: Project3Props) => {
                         style={{ transformOrigin: "center center" }}
                     >
                         <div className="p-4 relative h-full">
-                            <div className="absolute inset-0 top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-10 ">
+                            <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-10">
                                 <img
-                                    src="images/project4.jpg"
+                                    src="/images/project4.jpg"
                                     title="Project 4 Preview"
                                     className="h-full w-full object-cover"
                                 />
