@@ -66,7 +66,7 @@ const Texture = () => {
                 <feDisplacementMap
                     in="SourceGraphic"
                     in2="softMap"
-                    scale={isMobile ? 90 : 120}
+                    scale={isMobile ? 70 : 100}
                     xChannelSelector="R"
                     yChannelSelector="G"
                 />
