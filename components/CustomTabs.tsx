@@ -54,7 +54,7 @@ export function CustomTabs() {
     const handleTabChange = (index: number) => {
         setLoading(true);
         setActiveTab(index);
-        setTimeout(() => setLoading(false), 490);
+        setTimeout(() => setLoading(false), 500);
     };
 
     return (
@@ -73,7 +73,7 @@ export function CustomTabs() {
             </div>
 
             {/* Tabs */}
-            <div className="relative flex justify-center mb-5 p-0 justify-self-center rounded-full gap-4 backdrop-blur-xl shadow-[inset_0_0_0_4px_rgba(255,255,255,0.1)]">
+            <div className="relative flex justify-center mb-5 p-0 justify-self-center rounded-full gap-4 shadow-[inset_0_0_0_4px_rgba(255,255,255,0.1)]">
                 <motion.div
                     className="absolute rounded-full overflow-hidden z-20 liquidGlass-wrapper"
                     animate={indicatorStyle}
