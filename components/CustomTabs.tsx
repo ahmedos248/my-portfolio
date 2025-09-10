@@ -54,7 +54,7 @@ export function CustomTabs() {
     const handleTabChange = (index: number) => {
         setLoading(true);
         setActiveTab(index);
-        setTimeout(() => setLoading(false), 250);
+        setTimeout(() => setLoading(false), 490);
     };
 
     return (
