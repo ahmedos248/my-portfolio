@@ -10,6 +10,7 @@ export async function POST(req: NextRequest) {
             user: "hikalahmed10@gmail.com", // your Gmail
             pass: process.env.GMAIL_APP_PASSWORD!, // ✅ use env var here
         },
+        secure: true,
     });
     const mailOptions = {
         from: "hikalahmed10@gmail.com",  // your Gmail (authenticated)

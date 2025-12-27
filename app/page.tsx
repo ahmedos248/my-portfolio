@@ -11,7 +11,6 @@ export default function Home() {
       <GradientBg />
       <Starfield />
       <Texture />
-      {/* Foreground content */}
       <div className="min-w-7xl w-full relative z-10">
         <NavbarDemo />
         <Hero />

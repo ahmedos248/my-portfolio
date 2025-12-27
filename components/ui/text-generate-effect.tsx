@@ -16,7 +16,7 @@ export const TextGenerateEffect = ({
 
     return (
         <div className={cn("font-bold", className)}>
-            <div className="m-0 dark:text-white text-black text-3xl sm:text-5xl lg:text-6xl md:text-4xl leading-snug tracking-wide">
+            <div className="m-0 text-white text-3xl sm:text-5xl lg:text-6xl md:text-4xl leading-snug tracking-wide">
                 {wordsArray.map((word, idx) => (
                     <motion.span
                         key={idx}
@@ -30,12 +30,12 @@ export const TextGenerateEffect = ({
                         }}
                         transition={{
                             duration,
-                            delay: idx * 0.15, // stagger reveal
+                            delay: idx * 0.15,
                             ease: "easeOut",
                         }}
                         className={cn(
                             "inline-block",
-                            idx > 3 ? "text-purple" : "dark:text-white text-black"
+                            idx > 3 ? "text-purple" : "text-white"
                         )}
                         style={{ willChange: "clip-path" }}
                     >
